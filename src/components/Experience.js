@@ -119,9 +119,9 @@ const Experience = () => {
               {renderSection("Work Experience", experiences.work)}
               {renderSection("Research", experiences.research)}
               {renderSection("Teaching", experiences.teaching)}
-              {renderSection("Extracurricular", experiences.extracurricular)}
+              {/* {renderSection("Extracurricular", experiences.extracurricular)} */}
             </div>
-            <div className="md:w-1/2 mt-4 md:mt-0 relative h-[800px]">
+            <div className="md:w-1/2 mt-4 md:mt-0 relative h-[700px]">
               {floatingImages.map((img, index) => (
                 <FloatingImage key={index} {...img} />
               ))}

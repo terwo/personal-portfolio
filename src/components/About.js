@@ -5,7 +5,6 @@ const About = () => {
     <section className="relative py-16 bg-gradient-to-b from-navy-600 to-navy-500">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex gap-12 items-center">
-          {/* Text Content */}
           <div className="w-1/2">
             <h2 className="text-3xl font-bold mb-6 text-peach-100">About Me</h2>
             <p className="text-lg text-lavender-100 mb-4">
@@ -24,7 +23,8 @@ const About = () => {
             <p className="text-lg text-lavender-100">
               My hobbies include watching comedy skits on Youtube, listening to
               sappy Chinese music, going on walks at night, and of course,
-              learning languages.
+              learning languages. More info about my extracurriculars can be
+              found on my Linkedin.
             </p>
           </div>
 
