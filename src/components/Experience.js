@@ -5,38 +5,66 @@ import Link from "next/link";
 const Experience = () => {
   const experiences = {
     education: [
-      "5th-year Cognitive Systems student at UBC",
-      "Part of the Applied AI Subteam of UBC Agrobot",
-      "Completed a 1-year exchange at the University of Tokyo",
+      "Undergraduate in Cognitive Systems, Emphasis in Language, at UBC",
+      "1-year exchange at UTokyo",
     ],
     work: [
-      "Project Assistant at UBC Cloud Innovation Centre",
-      "Part-time Software Developer at Sparkle AI",
-      "Student Researcher at Human-AI Interaction Lab @ UBC with Doctor Conati",
-      "Freelance Web Developer through the Riipen program",
-      "Teaching Assistant for CPSC110, CPSC210, JAPN100, and JAPN200 at UBC",
-      "English Conversation Tutor for children aged 5-12 in Japan",
+      "Project Assistant, UBC Cloud Innovation Centre",
+      "Part-time Software Developer, Sparkle AI",
+      "Freelance Web Developer, Riipen program",
+    ],
+    research: [
+      "Research Assistant (NSERC), Human-AI Interaction Lab, under Dr. Cristina Conati",
+      "Research Assistant, SLIME Lab, under Dr. Jian Zhu",
+    ],
+    teaching: [
+      "CPSC110 TA (2021W1, 2021W2, 2024W1)",
+      "CPSC210 TA (2024S2)",
+      "CPSC320 TA (2024W2)",
+      "JAPN100 TA (2023S)",
+      "JAPN200 TA (2024S1)",
+      "Part-time English Conversation Tutor, Ouchi International",
+      "Chinese Oral Practice Volunteer (2020W1)",
+    ],
+    extracurricular: [
+      "Applied AI Subteam Member, UBC Agrobot",
+      "First-Year Representative (2020), Cultural Team Member (2021), UBC Japan Association",
+      "Helper, Komaba Association for Children",
+      "UBC Arts Co-op, Japan Association, Japan Career Network, Cognitive Systems Society, COGS Tri-mentoring Program",
+      "UTokyo Cloud9, Piano Club, Volleyball Part",
     ],
   };
 
   const floatingImages = [
     {
       src: "/images/ouchi_logo.png",
-      alt: "Experience 1",
-      link: "https://example1.com",
-      position: { top: "10%", left: "10%" },
+      alt: "Ouchi International",
+      link: "https://ouchi-inter.jp/",
+      position: { top: "80%", left: "50%" },
     },
     {
       src: "/images/sparkle_logo.jpg",
-      alt: "Experience 2",
-      link: "https://example2.com",
-      position: { top: "40%", left: "60%" },
+      alt: "Sparkle AI",
+      link: "https://www.sparkleai.co.jp/",
+      position: { top: "35%", left: "70%" },
     },
     {
       src: "/images/utokyo_logo.png",
-      alt: "Experience 3",
-      link: "https://example3.com",
-      position: { top: "70%", left: "30%" },
+      alt: "University of Tokyo",
+      link: "https://www.u-tokyo.ac.jp/en/",
+      position: { top: "5%", left: "10%" },
+    },
+    {
+      src: "/images/ubc_agrobot_logo.png",
+      alt: "UBC Agrobot",
+      link: "https://ubcagrobot.com/",
+      position: { top: "90%", left: "10%" },
+    },
+    {
+      src: "/images/kodomo_kai.png",
+      alt: "Kodomo Kai",
+      link: "https://komabakodomokaihp.wixsite.com/komabakodomokai",
+      position: { top: "50%", left: "10%" },
     },
   ];
 
@@ -89,8 +117,11 @@ const Experience = () => {
             <div className="md:w-1/2 pr-6 space-y-6">
               {renderSection("Education", experiences.education)}
               {renderSection("Work Experience", experiences.work)}
+              {renderSection("Research", experiences.research)}
+              {renderSection("Teaching", experiences.teaching)}
+              {renderSection("Extracurricular", experiences.extracurricular)}
             </div>
-            <div className="md:w-1/2 mt-4 md:mt-0 relative h-[600px]">
+            <div className="md:w-1/2 mt-4 md:mt-0 relative h-[800px]">
               {floatingImages.map((img, index) => (
                 <FloatingImage key={index} {...img} />
               ))}
