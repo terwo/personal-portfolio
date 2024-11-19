@@ -87,7 +87,7 @@ const Hero = () => {
               }`}
             >
               <Image
-                src="/images/profile.jpg"
+                src="/images/profile_blue.jpg"
                 alt="Profile"
                 width={300}
                 height={300}

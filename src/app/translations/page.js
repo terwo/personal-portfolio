@@ -9,8 +9,8 @@ const TranslationsPage = () => {
       title: "沼地",
       author: "Akutagawa Ryuunosuke",
       description:
-        "A short story that doesn't have enough recognition. The structure of this piece particularly struck me.",
-      pdfPath: "/translations/project1.pdf",
+        "A short story that I believe doesn't have enough recognition. I am particularly fond of the structure of this piece. My main challenges included differentiating between 絵描き and 画家, and naturally combining clauses in ways natural for English.",
+      pdfPath: "/translations/swampland_translation.pdf",
     },
   ];
 
@@ -29,7 +29,6 @@ const TranslationsPage = () => {
     <PageLayout heroHeight="h-[40vh]" heroContent={heroContent}>
       <AnimatedSection className="bg-navy-600">
         <div className="container px-8 py-12">
-          <h2 className="text-3xl font-bold mb-6 text-peach-100">Preface</h2>
           <p className="text-lg text-white max-w-3xl mb-6">
             At the University of Tokyo, I took classes on translation and
             interpretation. As part of my goal to democratize both skills as an

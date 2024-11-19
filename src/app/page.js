@@ -35,7 +35,7 @@ export default function Home() {
       </div>
       <div className="w-1/2 flex justify-center">
         <Image
-          src="/images/profile.jpg"
+          src="/images/profile_blue.jpg"
           alt="Profile"
           width={300}
           height={300}
