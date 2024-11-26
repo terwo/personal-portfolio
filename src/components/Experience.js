@@ -40,10 +40,10 @@ const Experience = () => {
       src: "/images/ouchi_logo.png",
       alt: "Ouchi International",
       link: "https://ouchi-inter.jp/",
-      position: { top: "80%", left: "50%" },
+      position: { top: "80%", left: "70%" },
     },
     {
-      src: "/images/sparkle_logo.jpg",
+      src: "/images/sparkle_space.png",
       alt: "Sparkle AI",
       link: "https://www.sparkleai.co.jp/",
       position: { top: "35%", left: "70%" },
@@ -55,7 +55,7 @@ const Experience = () => {
       position: { top: "5%", left: "10%" },
     },
     {
-      src: "/images/ubc_agrobot_logo.png",
+      src: "/images/agrobot_space.jpg",
       alt: "UBC Agrobot",
       link: "https://ubcagrobot.com/",
       position: { top: "90%", left: "10%" },
