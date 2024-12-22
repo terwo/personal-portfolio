@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import { M_PLUS_Rounded_1c } from "next/font/google";
 import { LoadingProvider } from "../context/LoadingContext";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${mPlusRounded1c.variable} font-sans`}>
         <LoadingProvider>{children}</LoadingProvider>
+        <Analytics />
       </body>
     </html>
   );
