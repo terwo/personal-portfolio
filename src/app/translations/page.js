@@ -12,6 +12,13 @@ const TranslationsPage = () => {
         "A short story that I believe doesn't have enough recognition. I am particularly fond of the structure of this piece. My main challenges included differentiating between 絵描き and 画家, and naturally combining clauses in ways natural for English.",
       pdfPath: "/translations/swampland_translation.pdf",
     },
+    {
+      title: "祖母の教訓",
+      author: "Makino Shinichi",
+      description:
+        "A reflective narrative on the author's grandmother. I found it challenging to map the different ways of representing quotations to English. My favourite part is imagining the author smiling at the end as he looks back at his memories with his grandmother.",
+      pdfPath: "/translations/grandmothers-lesson_translation.pdf",
+    },
   ];
 
   const glossaries = [
