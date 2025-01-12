@@ -4,8 +4,8 @@ const About = () => {
   return (
     <section className="relative py-16 bg-gradient-to-b from-navy-600 to-navy-500">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex gap-12 items-center">
-          <div className="w-1/2">
+        <div className="flex flex-col md:flex-row gap-12 items-center">
+          <div className="w-full md:w-1/2 pr-0 md:pr-6">
             <h2 className="text-3xl font-bold mb-6 text-peach-100">About Me</h2>
             <p className="text-lg text-lavender-100 mb-4">
               The time I interpreted for my mother at the hospital with my
@@ -29,12 +29,17 @@ const About = () => {
           </div>
 
           {/* Single Image */}
-          <div className="w-1/2">
-            <img
-              src="/images/manyoushuu.png"
-              alt="About me"
-              className="w-full h-auto rounded-lg shadow-lg object-cover"
-            />
+          <div className="w-full md:w-1/2">
+            <figure className="text-center">
+              <img
+                src="/images/manyoushuu.png"
+                alt="About me"
+                className="w-full h-auto rounded-lg shadow-lg object-cover mb-2"
+              />
+              <figcaption className="text-sm text-lavender-200 mt-2 italic">
+                An excerpt from the Man&apos;yōshū, found in Beppu, Japan
+              </figcaption>
+            </figure>
           </div>
         </div>
       </div>

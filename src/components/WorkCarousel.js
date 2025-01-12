@@ -123,8 +123,14 @@ const WorkCarousel = () => {
     setIsAutoScrolling(true);
   };
 
+  // const carouselStyle = {
+  //   transform: `translateX(-${(currentIndex - 1) * 33.33}%)`,
+  //   transition: isTransitioning ? "transform 500ms ease-in-out" : "none",
+  // };
   const carouselStyle = {
-    transform: `translateX(-${(currentIndex - 1) * 33.33}%)`,
+    transform: `translateX(-${
+      (currentIndex - 1) * (window.innerWidth >= 768 ? 33.33 : 100)
+    }%)`,
     transition: isTransitioning ? "transform 500ms ease-in-out" : "none",
   };
 
@@ -137,7 +143,8 @@ const WorkCarousel = () => {
         </h2>
         <div className="flex py-4 items-center">
           <button
-            className="mr-4 bg-peach-500 text-navy-700 px-4 py-2 rounded hover:bg-peach-400 transition-colors"
+            // className="mr-4 bg-peach-500 text-navy-700 px-4 py-2 rounded hover:bg-peach-400 transition-colors"
+            className="mr-4 bg-peach-500 text-navy-700 px-2 md:px-4 py-1 md:py-2 rounded hover:bg-peach-400 transition-colors"
             onClick={() => {
               prevProject();
               handleInteraction();
@@ -159,7 +166,8 @@ const WorkCarousel = () => {
               {projects.map((project, index) => (
                 <div
                   key={`${project.id}-${index}`}
-                  className="w-1/3 flex-shrink-0 px-2"
+                  // className="w-1/3 flex-shrink-0 px-2"
+                  className="w-full md:w-1/3 flex-shrink-0 px-2"
                 >
                   <Link href={project.link} passHref>
                     <div className="bg-navy-500 rounded-lg shadow-md overflow-hidden h-full flex flex-col transition-transform duration-300 hover:scale-105 cursor-pointer">
@@ -192,7 +200,8 @@ const WorkCarousel = () => {
             </div>
           </div>
           <button
-            className="ml-4 bg-peach-500 text-navy-700 px-4 py-2 rounded hover:bg-peach-400 transition-colors"
+            // className="ml-4 bg-peach-500 text-navy-700 px-4 py-2 rounded hover:bg-peach-400 transition-colors"
+            className="ml-4 bg-peach-500 text-navy-700 px-2 md:px-4 py-1 md:py-2 rounded hover:bg-peach-400 transition-colors"
             onClick={() => {
               nextProject();
               handleInteraction();
