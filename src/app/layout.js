@@ -1,15 +1,14 @@
-import { Inter } from "next/font/google";
-import { M_PLUS_Rounded_1c } from "next/font/google";
+import { Lato } from "next/font/google";
 import { LoadingProvider } from "../context/LoadingContext";
+import { LanguageProvider } from "../context/LanguageContext";
+import { ThemeProvider } from "../context/ThemeContext";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 
-const inter = Inter({ subsets: ["latin"] });
-
-const mPlusRounded1c = M_PLUS_Rounded_1c({
+const lato = Lato({
   subsets: ["latin"],
   weight: ["400", "700"],
-  variable: "--font-mplusrounded1c",
+  variable: "--font-lato",
 });
 
 export const metadata = {
@@ -20,8 +19,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${mPlusRounded1c.variable} font-sans`}>
-        <LoadingProvider>{children}</LoadingProvider>
+      <body className={`${lato.variable} font-sans`}>
+        <ThemeProvider>
+          <LanguageProvider>
+            <LoadingProvider>{children}</LoadingProvider>
+          </LanguageProvider>
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>

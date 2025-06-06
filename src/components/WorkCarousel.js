@@ -1,8 +1,10 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import { useCallback, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const originalProjects = [
   {
@@ -70,128 +72,74 @@ const originalProjects = [
 ];
 
 const WorkCarousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(3);
-  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const [direction, setDirection] = useState(1); // 1 for right, -1 for left
-  const autoScrollTimerRef = useRef(null);
-  const projects = [
-    ...originalProjects.slice(-3),
-    ...originalProjects,
-    ...originalProjects.slice(0, 3),
-  ];
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "start",
+    slidesToScroll: 1,
+    breakpoints: {
+      "(min-width: 768px)": { slidesToShow: 3 },
+      "(max-width: 767px)": { slidesToShow: 1 },
+    },
+  });
 
-  const moveCarousel = (dir) => {
-    setIsTransitioning(true);
-    setCurrentIndex((prevIndex) => prevIndex + dir);
-    setDirection(dir);
-  };
+  const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
+  const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState([]);
 
-  const nextProject = () => moveCarousel(1);
-  const prevProject = () => moveCarousel(-1);
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setPrevBtnEnabled(emblaApi.canScrollPrev());
+    setNextBtnEnabled(emblaApi.canScrollNext());
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
 
   useEffect(() => {
-    let intervalId;
-    if (isAutoScrolling) {
-      intervalId = setInterval(() => moveCarousel(direction), 3000);
-    }
-    return () => {
-      if (intervalId) {
-        clearInterval(intervalId);
-      }
-    };
-  }, [isAutoScrolling, direction]);
-
-  const handleInteraction = () => {
-    setIsAutoScrolling(false);
-    if (autoScrollTimerRef.current) {
-      clearTimeout(autoScrollTimerRef.current);
-    }
-    autoScrollTimerRef.current = setTimeout(
-      () => setIsAutoScrolling(true),
-      3000
-    );
-  };
-
-  const handleTransitionEnd = () => {
-    setIsTransitioning(false);
-    if (currentIndex >= originalProjects.length + 3) {
-      setCurrentIndex(3);
-    } else if (currentIndex < 3) {
-      setCurrentIndex(originalProjects.length + 2);
-    }
-    setIsAutoScrolling(true);
-  };
-
-  // const carouselStyle = {
-  //   transform: `translateX(-${(currentIndex - 1) * 33.33}%)`,
-  //   transition: isTransitioning ? "transform 500ms ease-in-out" : "none",
-  // };
-  const carouselStyle = {
-    transform: `translateX(-${
-      (currentIndex - 1) * (window.innerWidth >= 768 ? 33.33 : 100)
-    }%)`,
-    transition: isTransitioning ? "transform 500ms ease-in-out" : "none",
-  };
+    if (!emblaApi) return;
+    onSelect();
+    setScrollSnaps(emblaApi.scrollSnapList());
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+  }, [emblaApi, onSelect]);
 
   return (
-    <div className="w-full py-16 relative bg-navy-700 bg-gradient-to-b from-navy-700 to-navy-600">
-      <div className="max-w-6xl mx-auto px-5 relative">
-        <h2 className="text-3xl font-bold mb-6 py-4 text-center relative text-peach-100">
+    <div className="w-full py-16 bg-navy-700 bg-gradient-to-b from-navy-700 to-navy-600">
+      <div className="max-w-6xl mx-auto px-5">
+        <h2 className="text-3xl font-bold mb-6 py-4 text-center text-peach-100">
           PROJECTS
-          <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-48 h-0.5 bg-peach-400 mt-2"></span>
+          <span className="block w-48 h-0.5 bg-peach-400 mx-auto mt-2"></span>
         </h2>
-        <div className="flex py-4 items-center">
-          <button
-            // className="mr-4 bg-peach-500 text-navy-700 px-4 py-2 rounded hover:bg-peach-400 transition-colors"
-            className="mr-4 bg-peach-500 text-navy-700 px-2 md:px-4 py-1 md:py-2 rounded hover:bg-peach-400 transition-colors"
-            onClick={() => {
-              prevProject();
-              handleInteraction();
-            }}
-            disabled={isTransitioning}
-          >
-            ←
-          </button>
-          <div
-            className="flex-grow overflow-hidden"
-            onMouseEnter={handleInteraction}
-            onMouseLeave={() => setIsAutoScrolling(true)}
-          >
-            <div
-              className="flex"
-              style={carouselStyle}
-              onTransitionEnd={handleTransitionEnd}
-            >
-              {projects.map((project, index) => (
+
+        <div className="relative">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex">
+              {originalProjects.map((project) => (
                 <div
-                  key={`${project.id}-${index}`}
-                  // className="w-1/3 flex-shrink-0 px-2"
-                  className="w-full md:w-1/3 flex-shrink-0 px-2"
+                  key={project.id}
+                  className="flex-[0_0_100%] md:flex-[0_0_33.33%] px-2"
                 >
                   <Link href={project.link} passHref>
-                    <div className="bg-navy-500 rounded-lg shadow-md overflow-hidden h-full flex flex-col transition-transform duration-300 hover:scale-105 cursor-pointer">
+                    <div className="bg-navy-500 rounded-lg shadow-md overflow-hidden h-full flex flex-col hover:scale-105 transition-transform duration-300">
                       <Image
                         src={project.image}
                         alt={project.title}
                         width={400}
-                        height={300}
+                        height={600}
                         className="w-full h-48 object-cover"
+                        loading="lazy"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        quality={85}
                       />
-                      <div className="p-4 flex-grow flex flex-col justify-between">
-                        <div>
-                          <h3 className="text-xl font-semibold mb-2 text-peach-200 h-12">
-                            {project.title}
-                          </h3>
-                          <p className="text-lavender-200 h-48 overflow-hidden">
-                            {project.description}
-                          </p>
-                        </div>
-                        <div className="mt-4">
-                          <span className="text-peach-400 hover:text-peach-300 transition-colors">
-                            Learn more →
-                          </span>
-                        </div>
+                      <div className="px-3 py-5 flex-grow">
+                        <h3 className="text-xl font-semibold mb-2 text-peach-200">
+                          {project.title}
+                        </h3>
+                        <p className="text-md text-lavender-200">
+                          {project.description}
+                        </p>
                       </div>
                     </div>
                   </Link>
@@ -199,17 +147,52 @@ const WorkCarousel = () => {
               ))}
             </div>
           </div>
-          <button
-            // className="ml-4 bg-peach-500 text-navy-700 px-4 py-2 rounded hover:bg-peach-400 transition-colors"
-            className="ml-4 bg-peach-500 text-navy-700 px-2 md:px-4 py-1 md:py-2 rounded hover:bg-peach-400 transition-colors"
-            onClick={() => {
-              nextProject();
-              handleInteraction();
-            }}
-            disabled={isTransitioning}
-          >
-            →
-          </button>
+
+          <div className="flex justify-center items-center mt-4 gap-2">
+            <button
+              onClick={scrollPrev}
+              disabled={!prevBtnEnabled}
+              className={`
+                p-2 rounded-full border-2 
+                transition-colors
+                ${
+                  prevBtnEnabled
+                    ? "border-peach-200 text-peach-200 hover:border-peach-400 hover:text-peach-400"
+                    : "border-peach-200/50 text-peach-200/50 cursor-not-allowed"
+                }
+              `}
+            >
+              <FaChevronLeft size={20} />
+            </button>
+            <div className="flex gap-2 mx-4">
+              {scrollSnaps.map((_, index) => (
+                <button
+                  key={index}
+                  className={`w-3 h-3 rounded-full border-2 transition-opacity ${
+                    index === selectedIndex
+                      ? "border-peach-200"
+                      : "border-peach-200/50"
+                  }`}
+                  onClick={() => emblaApi?.scrollTo(index)}
+                />
+              ))}
+            </div>
+            <button
+              onClick={scrollNext}
+              disabled={!nextBtnEnabled}
+              className={`
+                p-2 rounded-full border-2 
+                transition-colors
+                ${
+                  nextBtnEnabled
+                    ? "border-peach-200 text-peach-200 hover:border-peach-400 hover:text-peach-400"
+                    : "border-peach-200/50 text-peach-200/50 cursor-not-allowed"
+                }
+              `}
+            >
+              <FaChevronRight size={20} />
+            </button>
+          </div>
         </div>
       </div>
     </div>

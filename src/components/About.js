@@ -1,30 +1,29 @@
-import React from "react";
+"use client";
+
+import { useLanguage } from "../context/LanguageContext";
+import { useTheme } from "../context/ThemeContext";
+import { translations } from "../translations";
 
 const About = () => {
+  const { language } = useLanguage();
+  const { currentTheme, themes } = useTheme();
+  const theme = themes[currentTheme];
+  const t = translations[language];
+
   return (
-    <section className="relative py-16 bg-gradient-to-b from-navy-600 to-navy-500">
+    <section className={`relative py-16 bg-gradient-to-b from-${theme.colors.background[600]} to-${theme.colors.background[500]}`}>
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <div className="w-full md:w-1/2 pr-0 md:pr-6">
-            <h2 className="text-3xl font-bold mb-6 text-peach-100">About Me</h2>
-            <p className="text-lg text-lavender-100 mb-4">
-              The time I interpreted for my mother at the hospital with my
-              nurses in high school was one of the most fulfilling moments in my
-              life. It was then I realized to always value the interpersonal
-              connections in my life, and that I wanted to do work that allowed
-              people to deeply connect with each other.
+            <h2 className={`text-3xl font-bold mb-6 text-${theme.colors.secondary[100]}`}>{t.about.title}</h2>
+            <p className={`text-lg text-${theme.colors.accent[100]} mb-4`}>
+              {t.about.paragraph1}
             </p>
-            <p className="text-lg text-lavender-100 mb-4">
-              Naturally, language is the universal medium that allows people to
-              communicate, and I want to focus on researching the ways in which
-              people can learn language-specific nuances more effectively, and
-              the computer systems that can assist in this effort.
+            <p className={`text-lg text-${theme.colors.accent[100]} mb-4`}>
+              {t.about.paragraph2}
             </p>
-            <p className="text-lg text-lavender-100">
-              My hobbies include watching comedy skits on Youtube, listening to
-              sappy Chinese music, going on walks at night, and of course,
-              learning languages. More info about my extracurriculars can be
-              found on my Linkedin.
+            <p className={`text-lg text-${theme.colors.accent[100]}`}>
+              {t.about.paragraph3}
             </p>
           </div>
 
@@ -36,8 +35,8 @@ const About = () => {
                 alt="About me"
                 className="w-full h-auto rounded-lg shadow-lg object-cover mb-2"
               />
-              <figcaption className="text-sm text-lavender-200 mt-2 italic">
-                An excerpt from the Man&apos;yōshū, found in Beppu, Japan
+              <figcaption className={`text-sm text-${theme.colors.accent[200]} mt-2 italic`}>
+                {t.about.imageCaption}
               </figcaption>
             </figure>
           </div>

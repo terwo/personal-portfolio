@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import NavBar from "./NavBar";
+import LanguageToggle from "./LanguageToggle";
 
 const PageLayout = ({ children, heroHeight = "h-screen", heroContent }) => {
   const [showBackground, setShowBackground] = useState(false);
@@ -20,6 +21,7 @@ const PageLayout = ({ children, heroHeight = "h-screen", heroContent }) => {
 
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-navy-600">
+      <LanguageToggle />
       <div className={`relative ${heroHeight}`}>
         <div
           className={`absolute inset-0 transition-opacity duration-1000 ${
@@ -29,8 +31,11 @@ const PageLayout = ({ children, heroHeight = "h-screen", heroContent }) => {
           <Image
             src="/images/sunset.jpg"
             alt="Background"
-            layout="fill"
-            objectFit="cover"
+            fill
+            priority
+            quality={90}
+            sizes="100vw"
+            className="object-cover"
           />
           <div
             className="absolute inset-0"
