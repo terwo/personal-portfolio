@@ -1,26 +1,40 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 const LoadingPage = ({ onLoadingComplete }) => {
   const [progress, setProgress] = useState(0);
+  const intervalRef = useRef(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    intervalRef.current = setInterval(() => {
       setProgress((prevProgress) => {
-        if (prevProgress >= 100) {
-          clearInterval(interval);
-          onLoadingComplete();
-          return 100;
-        }
-        return Math.min(prevProgress + Math.floor(Math.random() * 6) + 5, 100);
+        const newProgress = Math.min(
+          prevProgress + Math.floor(Math.random() * 6) + 5,
+          100
+        );
+        return newProgress;
       });
     }, 300);
 
-    return () => clearInterval(interval);
-  }, [onLoadingComplete]);
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (progress >= 100) {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+      onLoadingComplete();
+    }
+  }, [progress, onLoadingComplete]);
 
   return (
-    <div className="fixed inset-0 bg-navy-500 flex flex-col items-center justify-center z-50">
+    <div className="fixed inset-0 bg-background-500 flex flex-col items-center justify-center z-50">
       <div className="w-32 h-32 rounded-full overflow-hidden mb-4">
         <Image
           src="/images/turtle.gif"
@@ -31,7 +45,7 @@ const LoadingPage = ({ onLoadingComplete }) => {
           priority
         />
       </div>
-      <p className="text-xl font-semibold text-peach-600">
+      <p className="text-xl font-semibold text-secondary-600">
         Loading ... {progress}%
       </p>
     </div>

@@ -1,0 +1,39 @@
+@keyframes nameCycle {
+
+    0%,
+    30% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    33%,
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+.animate-name-cycle {
+    position: relative;
+    height: 120px;
+}
+
+.animate-name-cycle span {
+    position: absolute;
+    left: 0;
+    animation: nameCycle 9s infinite;
+    width: 100%;
+    opacity: 0;
+}
+
+.name-english {
+    animation-delay: 0s;
+}
+
+.name-japanese {
+    animation-delay: 3s;
+}
+
+.name-chinese {
+    animation-delay: 6s;
+}

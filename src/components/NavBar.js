@@ -4,14 +4,11 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "../context/LanguageContext";
-import { useTheme } from "../context/ThemeContext";
 import { translations } from "../translations";
 
 const NavBar = () => {
   const pathname = usePathname();
   const { language } = useLanguage();
-  const { currentTheme, themes } = useTheme();
-  const theme = themes[currentTheme];
   const t = translations[language];
 
   return (
@@ -20,8 +17,8 @@ const NavBar = () => {
         <li>
           <Link
             href="/"
-            className={`text-white hover:text-${theme.colors.secondary[200]} transition-colors ${
-              pathname === "/" ? `text-${theme.colors.secondary[200]}` : ""
+            className={`text-white hover:text-secondary-200 transition-colors ${
+              pathname === "/" ? "text-secondary-200" : ""
             }`}
           >
             {t.nav.home}
@@ -30,8 +27,8 @@ const NavBar = () => {
         <li>
           <Link
             href="/translations"
-            className={`text-white hover:text-${theme.colors.secondary[200]} transition-colors ${
-              pathname === "/translations" ? `text-${theme.colors.secondary[200]}` : ""
+            className={`text-white hover:text-secondary-200 transition-colors ${
+              pathname === "/translations" ? "text-secondary-200" : ""
             }`}
           >
             {t.nav.translations}

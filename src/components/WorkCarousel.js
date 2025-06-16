@@ -106,11 +106,11 @@ const WorkCarousel = () => {
   }, [emblaApi, onSelect]);
 
   return (
-    <div className="w-full py-16 bg-navy-700 bg-gradient-to-b from-navy-700 to-navy-600">
+    <div className="w-full py-16 bg-background-700 bg-gradient-to-b from-background-700 to-background-600">
       <div className="max-w-6xl mx-auto px-5">
-        <h2 className="text-3xl font-bold mb-6 py-4 text-center text-peach-100">
-          PROJECTS
-          <span className="block w-48 h-0.5 bg-peach-400 mx-auto mt-2"></span>
+        <h2 className="text-3xl font-bold mb-6 py-4 text-secondary-100">
+          Projects
+          <span className="block w-28 h-0.5 bg-secondary-400 mt-2"></span>
         </h2>
 
         <div className="relative">
@@ -122,7 +122,7 @@ const WorkCarousel = () => {
                   className="flex-[0_0_100%] md:flex-[0_0_33.33%] px-2"
                 >
                   <Link href={project.link} passHref>
-                    <div className="bg-navy-500 rounded-lg shadow-md overflow-hidden h-full flex flex-col hover:scale-105 transition-transform duration-300">
+                    <div className="bg-background-500 rounded-lg shadow-md overflow-hidden h-full flex flex-col hover:scale-105 transition-transform duration-300">
                       <Image
                         src={project.image}
                         alt={project.title}
@@ -134,10 +134,10 @@ const WorkCarousel = () => {
                         quality={85}
                       />
                       <div className="px-3 py-5 flex-grow">
-                        <h3 className="text-xl font-semibold mb-2 text-peach-200">
+                        <h3 className="text-xl font-semibold mb-2 text-secondary-200">
                           {project.title}
                         </h3>
-                        <p className="text-md text-lavender-200">
+                        <p className="text-md text-accent-200">
                           {project.description}
                         </p>
                       </div>
@@ -157,8 +157,8 @@ const WorkCarousel = () => {
                 transition-colors
                 ${
                   prevBtnEnabled
-                    ? "border-peach-200 text-peach-200 hover:border-peach-400 hover:text-peach-400"
-                    : "border-peach-200/50 text-peach-200/50 cursor-not-allowed"
+                    ? "border-secondary-200 text-secondary-200 hover:border-secondary-400 hover:text-secondary-400"
+                    : "border-secondary-200/50 text-secondary-200/50 cursor-not-allowed"
                 }
               `}
             >
@@ -170,8 +170,8 @@ const WorkCarousel = () => {
                   key={index}
                   className={`w-3 h-3 rounded-full border-2 transition-opacity ${
                     index === selectedIndex
-                      ? "border-peach-200"
-                      : "border-peach-200/50"
+                      ? "border-secondary-200"
+                      : "border-secondary-200/50"
                   }`}
                   onClick={() => emblaApi?.scrollTo(index)}
                 />
@@ -185,8 +185,8 @@ const WorkCarousel = () => {
                 transition-colors
                 ${
                   nextBtnEnabled
-                    ? "border-peach-200 text-peach-200 hover:border-peach-400 hover:text-peach-400"
-                    : "border-peach-200/50 text-peach-200/50 cursor-not-allowed"
+                    ? "border-secondary-200 text-secondary-200 hover:border-secondary-400 hover:text-secondary-400"
+                    : "border-secondary-200/50 text-secondary-200/50 cursor-not-allowed"
                 }
               `}
             >

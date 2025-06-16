@@ -1,25 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import PageLayout from "../components/PageLayout";
 import LoadingPage from "../components/LoadingPage";
-import Experience from "../components/Experience";
+import AboutMe from "../components/AboutMe";
 import WorkCarousel from "../components/WorkCarousel";
-import About from "../components/About";
+import Motivations from "../components/Motivations";
 import Footer from "../components/Footer";
 import AnimatedSection from "../components/AnimatedSection";
 import { useLoading } from "../context/LoadingContext";
 import { useLanguage } from "../context/LanguageContext";
-import { useTheme } from "../context/ThemeContext";
 import { translations } from "../translations";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import "./animations.css";
 
 export default function Home() {
   const { hasLoadedInitially, setHasLoadedInitially } = useLoading();
   const [isLoading, setIsLoading] = useState(!hasLoadedInitially);
   const { language } = useLanguage();
-  const { currentTheme, themes } = useTheme();
-  const theme = themes[currentTheme];
   const t = translations[language];
 
   const handleLoadingComplete = () => {
@@ -34,10 +33,43 @@ export default function Home() {
   const heroContent = (
     <div className="container mx-auto px-8 flex items-center">
       <div className="w-1/2 pr-8">
-        <h1 className="text-8xl font-bold mb-2 text-primary-100">{t.hero.greeting}</h1>
-        <p className="py-8 text-2xl text-accent-200">
-          {t.hero.introduction}
-        </p>
+        <div className="animate-name-cycle">
+          <h1 className="text-8xl font-bold mb-2 text-primary-100">
+            Franklin Ma
+          </h1>
+        </div>
+        <div className="flex gap-6 text-3xl">
+          <a
+            href="https://github.com/terwo"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent-200 hover:text-primary-100 transition-colors"
+          >
+            <FaGithub />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/franklinma27/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent-200 hover:text-primary-100 transition-colors"
+          >
+            <FaLinkedin />
+          </a>
+          <a
+            href="mailto:franklinming.m27@icloud.com"
+            className="text-accent-200 hover:text-primary-100 transition-colors"
+          >
+            <FaEnvelope />
+          </a>
+          <a
+            href="https://devpost.com/terwo"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent-200 hover:text-primary-100 transition-colors"
+          >
+            Devpost
+          </a>
+        </div>
       </div>
       <div className="w-1/2 flex justify-center">
         <Image
@@ -54,13 +86,13 @@ export default function Home() {
   return (
     <PageLayout heroContent={heroContent}>
       <AnimatedSection className="bg-background-600">
-        <Experience />
+        <AboutMe />
       </AnimatedSection>
       <AnimatedSection className="bg-background-700">
         <WorkCarousel />
       </AnimatedSection>
       <AnimatedSection className="bg-background-600">
-        <About />
+        <Motivations />
       </AnimatedSection>
       <AnimatedSection className="bg-background-500">
         <Footer />
