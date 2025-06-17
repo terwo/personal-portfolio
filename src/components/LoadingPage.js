@@ -45,7 +45,7 @@ const LoadingPage = ({ onLoadingComplete }) => {
           priority
         />
       </div>
-      <p className="text-xl font-semibold text-secondary-600">
+      <p className="text-xl font-semibold text-primary-600">
         Loading ... {progress}%
       </p>
     </div>

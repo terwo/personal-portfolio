@@ -55,7 +55,7 @@ export const translations = {
         { code: "JAPN200", name: "Intermediate Japanese", terms: "2024S" },
       ],
       cvParagraph:
-        "I also have work experience in project management and software development. More information can be found in",
+        "My previous work experience include project management at the UBC Cloud Innovation Centre, and software development at Sparkle AI. More information can be found in",
       cvLinkText: "my complete CV",
     },
     projects: {

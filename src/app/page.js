@@ -31,57 +31,115 @@ export default function Home() {
   }
 
   const heroContent = (
-    <div className="container mx-auto px-8 flex items-center">
-      <div className="w-1/2 pr-8">
-        <div className="animate-name-cycle">
-          <h1 className="text-8xl font-bold mb-2 text-primary-100">
-            Franklin Ma
-          </h1>
+    <div className="container mx-auto px-2">
+      <div className="flex flex-col md:flex-row items-center">
+        {/* Profile */}
+        <div className="w-full md:w-1/2 md:mb-16 flex justify-center">
+          <Image
+            src="/images/profile_blue.jpg"
+            alt="Profile"
+            width={330}
+            height={440}
+            className="rounded-full border-2 border-primary-200"
+          />
         </div>
-        <div className="flex gap-6 text-3xl">
-          <a
-            href="https://github.com/terwo"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent-200 hover:text-primary-100 transition-colors"
-          >
-            <FaGithub />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/franklinma27/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent-200 hover:text-primary-100 transition-colors"
-          >
-            <FaLinkedin />
-          </a>
-          <a
-            href="mailto:franklinming.m27@icloud.com"
-            className="text-accent-200 hover:text-primary-100 transition-colors"
-          >
-            <FaEnvelope />
-          </a>
-          <a
-            href="https://devpost.com/terwo"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent-200 hover:text-primary-100 transition-colors"
-          >
-            Devpost
-          </a>
+
+        {/* Name and Social Links */}
+        <div className="w-full md:w-1/2 flex flex-col items-center justify-center pt-8 md:pt-0 space-y-2">
+          <div className="text-center">
+            <h1 className="text-6xl font-bold mb-4 text-primary-100">
+              Franklin Ma
+            </h1>
+          </div>
+          <div className="flex gap-8 text-3xl">
+            <a
+              href="https://github.com/terwo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary-200 hover:text-primary-100 transition-colors"
+            >
+              <FaGithub />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/franklinma27/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary-200 hover:text-primary-100 transition-colors"
+            >
+              <FaLinkedin />
+            </a>
+            <a
+              href="mailto:franklinming.m27@icloud.com"
+              className="text-primary-200 hover:text-primary-100 transition-colors"
+            >
+              <FaEnvelope />
+            </a>
+            <a
+              href="https://devpost.com/terwo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary-200 hover:text-primary-100 transition-colors"
+            >
+              Devpost
+            </a>
+          </div>
         </div>
-      </div>
-      <div className="w-1/2 flex justify-center">
-        <Image
-          src="/images/profile_blue.jpg"
-          alt="Profile"
-          width={300}
-          height={300}
-          className="rounded-full border-4 border-secondary-400"
-        />
       </div>
     </div>
   );
+
+  // const heroContent = (
+  //   <div className="container mx-auto px-8 flex items-center">
+  //     <div className="w-1/2 pr-8">
+  //       <div className="animate-name-cycle">
+  //         <h1 className="text-8xl font-bold mb-2 text-primary-100">
+  //           Franklin Ma
+  //         </h1>
+  //       </div>
+  //       <div className="flex gap-6 text-3xl">
+  //         <a
+  //           href="https://github.com/terwo"
+  //           target="_blank"
+  //           rel="noopener noreferrer"
+  //           className="text-primary-200 hover:text-primary-100 transition-colors"
+  //         >
+  //           <FaGithub />
+  //         </a>
+  //         <a
+  //           href="https://www.linkedin.com/in/franklinma27/"
+  //           target="_blank"
+  //           rel="noopener noreferrer"
+  //           className="text-primary-200 hover:text-primary-100 transition-colors"
+  //         >
+  //           <FaLinkedin />
+  //         </a>
+  //         <a
+  //           href="mailto:franklinming.m27@icloud.com"
+  //           className="text-primary-200 hover:text-primary-100 transition-colors"
+  //         >
+  //           <FaEnvelope />
+  //         </a>
+  //         <a
+  //           href="https://devpost.com/terwo"
+  //           target="_blank"
+  //           rel="noopener noreferrer"
+  //           className="text-primary-200 hover:text-primary-100 transition-colors"
+  //         >
+  //           Devpost
+  //         </a>
+  //       </div>
+  //     </div>
+  //     <div className="w-1/2 flex justify-center">
+  //       <Image
+  //         src="/images/profile_blue.jpg"
+  //         alt="Profile"
+  //         width={300}
+  //         height={300}
+  //         className="rounded-full border-4 border-primary-400"
+  //       />
+  //     </div>
+  //   </div>
+  // );
 
   return (
     <PageLayout heroContent={heroContent}>

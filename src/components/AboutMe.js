@@ -13,9 +13,9 @@ const AboutMe = () => {
       <div className="relative z-10">
         <div className="max-w-6xl mx-auto px-4">
           {/* Title */}
-          <h2 className="text-3xl font-bold mb-8 py-4 relative text-secondary-100">
+          <h2 className="text-3xl font-bold mb-8 py-4 relative text-primary-100">
             {t.title}
-            <span className="block w-36 h-0.5 bg-secondary-400 mt-2"></span>
+            <span className="block w-36 h-0.5 bg-primary-400 mt-2"></span>
           </h2>
 
           {/* Full-width*/}
@@ -35,16 +35,16 @@ const AboutMe = () => {
           <div className="grid md:grid-cols-2 gap-12 mb-12">
             {/* Research Interests */}
             <div>
-              <h3 className="text-2xl font-semibold text-secondary-300 mb-6">
+              <h3 className="text-2xl font-semibold text-primary-300 mb-6">
                 {t.researchTitle}
               </h3>
               <div className="space-y-6">
                 {t.researchInterests.map((interest, index) => (
                   <div
                     key={index}
-                    className="border-l-2 border-secondary-400 pl-4"
+                    className="border-l-2 border-primary-400 pl-4"
                   >
-                    <h4 className="font-semibold text-secondary-200 mb-2">
+                    <h4 className="font-semibold text-primary-200 mb-2">
                       {interest.title}
                     </h4>
                     <p className="text-accent-100 text-sm leading-relaxed">
@@ -57,7 +57,7 @@ const AboutMe = () => {
 
             {/* Teaching */}
             <div>
-              <h3 className="text-2xl font-semibold text-secondary-300 mb-4">
+              <h3 className="text-2xl font-semibold text-primary-300 mb-4">
                 {t.teaching}
               </h3>
               <p className="text-accent-100 text-sm leading-relaxed mb-6 italic">
@@ -71,7 +71,7 @@ const AboutMe = () => {
                   >
                     <div className="flex items-start justify-between">
                       <div>
-                        <span className="font-mono text-secondary-300 font-semibold">
+                        <span className="font-mono text-primary-300 font-semibold">
                           {course.code}
                         </span>
                         <p className="text-accent-100 text-sm mt-1">
@@ -95,7 +95,7 @@ const AboutMe = () => {
               <span className="inline-block ml-2">
                 <a
                   href="/cv.pdf"
-                  className="inline-flex items-center text-secondary-300 hover:text-secondary-200 font-semibold underline decoration-secondary-400 hover:decoration-secondary-300 transition-colors duration-200"
+                  className="inline-flex items-center text-primary-300 hover:text-primary-200 font-semibold underline decoration-primary-400 hover:decoration-primary-300 transition-colors duration-200"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

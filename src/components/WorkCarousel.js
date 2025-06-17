@@ -108,9 +108,9 @@ const WorkCarousel = () => {
   return (
     <div className="w-full py-16 bg-background-700 bg-gradient-to-b from-background-700 to-background-600">
       <div className="max-w-6xl mx-auto px-5">
-        <h2 className="text-3xl font-bold mb-6 py-4 text-secondary-100">
+        <h2 className="text-3xl font-bold mb-6 py-4 text-primary-100">
           Projects
-          <span className="block w-28 h-0.5 bg-secondary-400 mt-2"></span>
+          <span className="block w-28 h-0.5 bg-primary-400 mt-2"></span>
         </h2>
 
         <div className="relative">
@@ -134,7 +134,7 @@ const WorkCarousel = () => {
                         quality={85}
                       />
                       <div className="px-3 py-5 flex-grow">
-                        <h3 className="text-xl font-semibold mb-2 text-secondary-200">
+                        <h3 className="text-xl font-semibold mb-2 text-primary-200">
                           {project.title}
                         </h3>
                         <p className="text-md text-accent-200">
@@ -157,8 +157,8 @@ const WorkCarousel = () => {
                 transition-colors
                 ${
                   prevBtnEnabled
-                    ? "border-secondary-200 text-secondary-200 hover:border-secondary-400 hover:text-secondary-400"
-                    : "border-secondary-200/50 text-secondary-200/50 cursor-not-allowed"
+                    ? "border-primary-200 text-primary-200 hover:border-primary-400 hover:text-primary-400"
+                    : "border-primary-200/50 text-primary-200/50 cursor-not-allowed"
                 }
               `}
             >
@@ -170,8 +170,8 @@ const WorkCarousel = () => {
                   key={index}
                   className={`w-3 h-3 rounded-full border-2 transition-opacity ${
                     index === selectedIndex
-                      ? "border-secondary-200"
-                      : "border-secondary-200/50"
+                      ? "border-primary-200"
+                      : "border-primary-200/50"
                   }`}
                   onClick={() => emblaApi?.scrollTo(index)}
                 />
@@ -185,8 +185,8 @@ const WorkCarousel = () => {
                 transition-colors
                 ${
                   nextBtnEnabled
-                    ? "border-secondary-200 text-secondary-200 hover:border-secondary-400 hover:text-secondary-400"
-                    : "border-secondary-200/50 text-secondary-200/50 cursor-not-allowed"
+                    ? "border-primary-200 text-primary-200 hover:border-primary-400 hover:text-primary-400"
+                    : "border-primary-200/50 text-primary-200/50 cursor-not-allowed"
                 }
               `}
             >

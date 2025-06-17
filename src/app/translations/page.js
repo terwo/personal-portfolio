@@ -10,9 +10,7 @@ const TranslationsPage = () => {
   const t = translations[language].translationsPage;
 
   const heroContent = (
-    <h1 className="text-6xl font-bold text-secondary-100">
-      {t.title}
-    </h1>
+    <h1 className="text-6xl font-bold text-primary-100">{t.title}</h1>
   );
 
   return (
@@ -28,7 +26,7 @@ const TranslationsPage = () => {
       {/* Translations Section */}
       <AnimatedSection className="bg-background-600">
         <div className="container px-8 py-12">
-          <h2 className="text-3xl font-bold mb-8 text-secondary-100">
+          <h2 className="text-3xl font-bold mb-8 text-primary-100">
             {t.projectsTitle}
           </h2>
           <div className="grid gap-6 max-w-2xl">
@@ -37,7 +35,7 @@ const TranslationsPage = () => {
                 key={index}
                 className="bg-background-700 rounded-lg p-6 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl"
               >
-                <h3 className="text-2xl font-bold text-secondary-100 mb-2">
+                <h3 className="text-2xl font-bold text-primary-100 mb-2">
                   {project.title}
                 </h3>
                 <p className="text-sm text-accent-200 mb-3">
@@ -48,7 +46,7 @@ const TranslationsPage = () => {
                   href={project.pdfPath}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 px-4 py-2 bg-secondary-400 text-background-600 rounded hover:bg-secondary-300 transition-colors inline-block"
+                  className="mt-4 px-4 py-2 bg-primary-400 text-background-600 rounded hover:bg-primary-300 transition-colors inline-block"
                 >
                   {t.openPdf}
                 </a>
@@ -61,7 +59,7 @@ const TranslationsPage = () => {
       {/* Glossary Section */}
       <AnimatedSection className="bg-background-600">
         <div className="container px-8 py-12">
-          <h2 className="text-3xl font-bold mb-6 text-secondary-100">
+          <h2 className="text-3xl font-bold mb-6 text-primary-100">
             {t.glossaryTitle}
           </h2>
           <p className="text-lg text-accent-100 max-w-3xl mb-6">
@@ -74,7 +72,7 @@ const TranslationsPage = () => {
                 href={glossary.path}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-secondary-400 hover:underline inline-flex items-center"
+                className="text-primary-400 hover:underline inline-flex items-center"
               >
                 {glossary.title}
                 <svg

@@ -17,8 +17,8 @@ const NavBar = () => {
         <li>
           <Link
             href="/"
-            className={`text-white hover:text-secondary-200 transition-colors ${
-              pathname === "/" ? "text-secondary-200" : ""
+            className={`text-white hover:text-primary-200 transition-colors ${
+              pathname === "/" ? "text-primary-200" : ""
             }`}
           >
             {t.nav.home}
@@ -27,8 +27,8 @@ const NavBar = () => {
         <li>
           <Link
             href="/translations"
-            className={`text-white hover:text-secondary-200 transition-colors ${
-              pathname === "/translations" ? "text-secondary-200" : ""
+            className={`text-white hover:text-primary-200 transition-colors ${
+              pathname === "/translations" ? "text-primary-200" : ""
             }`}
           >
             {t.nav.translations}

@@ -15,7 +15,7 @@ const Footer = () => {
             href="https://www.linkedin.com/in/franklinma27/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-secondary-300 transition-colors"
+            className="hover:text-primary-300 transition-colors"
           >
             LinkedIn
           </a>
@@ -23,7 +23,7 @@ const Footer = () => {
             href="https://github.com/terwo"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-secondary-300 transition-colors"
+            className="hover:text-primary-300 transition-colors"
           >
             GitHub
           </a>
