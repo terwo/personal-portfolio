@@ -38,6 +38,7 @@ export default function Home() {
           <Image
             src="/images/profile_green.jpg"
             alt="Profile"
+            priority
             width={500}
             height={500}
             className="rounded-full border-2 border-primary-200"
