@@ -8,10 +8,15 @@ const LoadingPage = ({ onLoadingComplete }) => {
   useEffect(() => {
     intervalRef.current = setInterval(() => {
       setProgress((prevProgress) => {
-        const newProgress = Math.min(
-          prevProgress + Math.floor(Math.random() * 6) + 5,
-          100
-        );
+        let increment;
+        if (prevProgress < 10) {
+          increment = Math.floor(Math.random() * 4) + 2;
+        } else if (prevProgress < 90) {
+          increment = Math.floor(Math.random() * 12) + 5;
+        } else {
+          increment = Math.floor(Math.random() * 2) + 1;
+        }
+        const newProgress = Math.min(prevProgress + increment, 100);
         return newProgress;
       });
     }, 300);
@@ -34,15 +39,16 @@ const LoadingPage = ({ onLoadingComplete }) => {
   }, [progress, onLoadingComplete]);
 
   return (
-    <div className="fixed inset-0 bg-background-500 flex flex-col items-center justify-center z-50">
+    <div className="fixed inset-0 bg-secondary-500 flex flex-col items-center justify-center z-50">
       <div className="w-32 h-32 rounded-full overflow-hidden mb-4">
         <Image
           src="/images/turtle.gif"
           alt="Loading Turtle"
           width={128}
           height={128}
-          objectFit="cover"
+          objectFit="fill"
           priority
+          className="loading-turtle-img"
         />
       </div>
       <p className="text-xl font-semibold text-primary-600">

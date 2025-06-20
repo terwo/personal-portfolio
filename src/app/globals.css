@@ -6,8 +6,8 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 255, 255, 255;
-  --background-end-rgb: 255, 255, 255;
+  --secondary-start-rgb: 255, 255, 255;
+  --secondary-end-rgb: 255, 255, 255;
   --default-text-color: #E2E8F0;
   /* Light gray color that works well on dark backgrounds */
 }
@@ -15,8 +15,8 @@
 /* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --secondary-start-rgb: 0, 0, 0;
+    --secondary-end-rgb: 0, 0, 0;
   }
 } */
 
@@ -24,11 +24,18 @@ body {
   color: var(--default-text-color);
   background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+      rgb(var(--secondary-end-rgb))) rgb(var(--secondary-start-rgb));
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.loading-turtle-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: fill !important;
+  aspect-ratio: 1 / 1;
 }

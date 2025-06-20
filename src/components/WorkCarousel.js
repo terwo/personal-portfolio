@@ -5,73 +5,14 @@ import { useCallback, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-
-const originalProjects = [
-  {
-    id: 1,
-    title: "yapyap",
-    description: "An anonymous social journaling app. Winner of nwHacks 2024.",
-    image: "/images/yapyap.jpg",
-    link: "https://devpost.com/software/yapyap-anonymous-social-journaling-app",
-  },
-  {
-    id: 2,
-    title: "You're Not Trash!",
-    description:
-      "A web game to help users learn about recycling. Winner of StormHacks 2024.",
-    image: "/images/yourenottrash.jpg",
-    link: "https://devpost.com/software/you-re-not-trash",
-  },
-  {
-    id: 3,
-    title: "Invasive Plants Identification App",
-    description:
-      "A photo-identification mobile application, available on both iOS and Android devices. Made with the UBC CIC Team.",
-    image: "/images/invasive_plants.jpg",
-    link: "https://cic.ubc.ca/project/invasive-plants-identification-app/",
-  },
-  {
-    id: 4,
-    title: "NoiseTracker Web Application",
-    description:
-      "A client application coupled with a cloud-native web application to enable information sharing of underwater sound levels.",
-    image: "/images/noisetracker.jpg",
-    link: "https://cic.ubc.ca/project/noisetracker-web-application/",
-  },
-  {
-    id: 5,
-    title: "Institutional Grant Data Analytics",
-    description:
-      "A cloud-native web application to modernize the way institutional grant data is analyzed at UBC.",
-    image: "/images/tlef.jpeg",
-    link: "https://cic.ubc.ca/project/modernizing-institutional-grant-data-analytics-using-cloud-services/",
-  },
-  {
-    id: 6,
-    title: "Sooper Tooder",
-    description:
-      "A mobile app connecting students with tutors to democratize education for all. Submission for Hack The North 2024.",
-    image: "/images/soopertooder.jpg",
-    link: "https://devpost.com/software/sooper-tooder",
-  },
-  {
-    id: 7,
-    title: "Towerist",
-    description: "A tower defense game made with Godot for GMTK Game Jam 2024.",
-    image: "/images/towerist.png",
-    link: "https://keveenwong.itch.io/towerist",
-  },
-  {
-    id: 8,
-    title: "MnemoMingle",
-    description:
-      "A Chrome extension where xample sentences, mnemonics, and images are generated in response to a user's highlighted text.",
-    image: "/images/mnemomingle.png",
-    link: "https://github.com/terwo/mnemo-mingle/tree/main",
-  },
-];
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../translations";
 
 const WorkCarousel = () => {
+  const { language } = useLanguage();
+  const t = translations[language].projects;
+  const projects = t.list;
+
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: "start",
@@ -106,23 +47,23 @@ const WorkCarousel = () => {
   }, [emblaApi, onSelect]);
 
   return (
-    <div className="w-full py-16 bg-background-700 bg-gradient-to-b from-background-700 to-background-600">
+    <div className="w-full py-16 bg-secondary-700 bg-gradient-to-b from-secondary-700 to-secondary-600">
       <div className="max-w-6xl mx-auto px-5">
         <h2 className="text-3xl font-bold mb-6 py-4 text-primary-100">
-          Projects
-          <span className="block w-28 h-0.5 bg-primary-400 mt-2"></span>
+          {t.title}
+          <span className="block w-64 h-0.5 bg-primary-400 mt-2"></span>
         </h2>
 
         <div className="relative">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex">
-              {originalProjects.map((project) => (
+              {projects.map((project, index) => (
                 <div
-                  key={project.id}
+                  key={index}
                   className="flex-[0_0_100%] md:flex-[0_0_33.33%] px-2"
                 >
                   <Link href={project.link} passHref>
-                    <div className="bg-background-500 rounded-lg shadow-md overflow-hidden h-full flex flex-col hover:scale-105 transition-transform duration-300">
+                    <div className="bg-secondary-500 rounded-lg shadow-md overflow-hidden h-full flex flex-col hover:scale-105 transition-transform duration-300">
                       <Image
                         src={project.image}
                         alt={project.title}

@@ -20,8 +20,7 @@ const PageLayout = ({ children, heroHeight = "h-screen", heroContent }) => {
   }, []);
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-background-600">
-      <LanguageToggle />
+    <div className="min-h-screen w-full overflow-x-hidden bg-secondary-600">
       <div className={`relative ${heroHeight}`}>
         <div
           className={`absolute inset-0 transition-opacity duration-1000 ${

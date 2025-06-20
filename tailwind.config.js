@@ -24,7 +24,7 @@ module.exports = {
           500: "#F2916D",
           600: "#D9756C",
         },
-        background: {
+        secondary: {
           100: "#E6E9F0",
           200: "#B3BCCC",
           300: "#8190A9",

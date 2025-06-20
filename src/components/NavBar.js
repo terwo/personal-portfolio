@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../translations";
+import LanguageToggle from "./LanguageToggle";
 
 const NavBar = () => {
   const pathname = usePathname();
@@ -13,7 +14,7 @@ const NavBar = () => {
 
   return (
     <nav className="absolute top-0 right-0 p-8 z-10">
-      <ul className="flex space-x-10">
+      <ul className="flex items-center space-x-10">
         <li>
           <Link
             href="/"
@@ -33,6 +34,9 @@ const NavBar = () => {
           >
             {t.nav.translations}
           </Link>
+        </li>
+        <li>
+          <LanguageToggle />
         </li>
       </ul>
     </nav>

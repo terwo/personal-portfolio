@@ -8,14 +8,14 @@ const AboutMe = () => {
   const t = translations[language].about;
 
   return (
-    <section className="relative py-24 overflow-hidden bg-gradient-to-b from-background-600 to-background-700 min-h-screen">
-      <div className="absolute inset-0 bg-gradient-to-b from-background-600 to-transparent pointer-events-none" />
+    <section className="relative py-24 overflow-hidden bg-gradient-to-b from-secondary-600 to-secondary-700 min-h-screen">
+      <div className="absolute inset-0 bg-gradient-to-b from-secondary-600 to-transparent pointer-events-none" />
       <div className="relative z-10">
         <div className="max-w-6xl mx-auto px-4">
           {/* Title */}
           <h2 className="text-3xl font-bold mb-8 py-4 relative text-primary-100">
             {t.title}
-            <span className="block w-36 h-0.5 bg-primary-400 mt-2"></span>
+            <span className="block w-64 h-0.5 bg-primary-400 mt-2"></span>
           </h2>
 
           {/* Full-width*/}
@@ -67,7 +67,7 @@ const AboutMe = () => {
                 {t.teachingCourses.map((course, index) => (
                   <div
                     key={index}
-                    className="bg-background-500/30 rounded-lg p-3 border border-background-400/20"
+                    className="bg-secondary-500/30 rounded-lg p-3 border border-secondary-400/20"
                   >
                     <div className="flex items-start justify-between">
                       <div>
@@ -78,7 +78,7 @@ const AboutMe = () => {
                           {course.name}
                         </p>
                       </div>
-                      <span className="text-xs text-accent-200 bg-background-400/30 px-2 py-1 rounded">
+                      <span className="text-xs text-accent-200 bg-secondary-400/30 px-2 py-1 rounded">
                         {course.terms}
                       </span>
                     </div>
@@ -89,10 +89,10 @@ const AboutMe = () => {
           </div>
 
           {/* CV Link Section */}
-          <div className="border-t border-background-400/30 pt-8">
+          <div className="border-t border-secondary-400/30 pt-8">
             <p className="text-lg text-accent-100 leading-relaxed">
-              {t.cvParagraph}
-              <span className="inline-block ml-2">
+              {t.cvParagraph} {}
+              <span>
                 <a
                   href="/cv.pdf"
                   className="inline-flex items-center text-primary-300 hover:text-primary-200 font-semibold underline decoration-primary-400 hover:decoration-primary-300 transition-colors duration-200"

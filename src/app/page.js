@@ -36,10 +36,10 @@ export default function Home() {
         {/* Profile */}
         <div className="w-full md:w-1/2 md:mb-16 flex justify-center">
           <Image
-            src="/images/profile_blue.jpg"
+            src="/images/profile_green.jpg"
             alt="Profile"
-            width={330}
-            height={440}
+            width={400}
+            height={400}
             className="rounded-full border-2 border-primary-200"
           />
         </div>
@@ -88,71 +88,18 @@ export default function Home() {
     </div>
   );
 
-  // const heroContent = (
-  //   <div className="container mx-auto px-8 flex items-center">
-  //     <div className="w-1/2 pr-8">
-  //       <div className="animate-name-cycle">
-  //         <h1 className="text-8xl font-bold mb-2 text-primary-100">
-  //           Franklin Ma
-  //         </h1>
-  //       </div>
-  //       <div className="flex gap-6 text-3xl">
-  //         <a
-  //           href="https://github.com/terwo"
-  //           target="_blank"
-  //           rel="noopener noreferrer"
-  //           className="text-primary-200 hover:text-primary-100 transition-colors"
-  //         >
-  //           <FaGithub />
-  //         </a>
-  //         <a
-  //           href="https://www.linkedin.com/in/franklinma27/"
-  //           target="_blank"
-  //           rel="noopener noreferrer"
-  //           className="text-primary-200 hover:text-primary-100 transition-colors"
-  //         >
-  //           <FaLinkedin />
-  //         </a>
-  //         <a
-  //           href="mailto:franklinming.m27@icloud.com"
-  //           className="text-primary-200 hover:text-primary-100 transition-colors"
-  //         >
-  //           <FaEnvelope />
-  //         </a>
-  //         <a
-  //           href="https://devpost.com/terwo"
-  //           target="_blank"
-  //           rel="noopener noreferrer"
-  //           className="text-primary-200 hover:text-primary-100 transition-colors"
-  //         >
-  //           Devpost
-  //         </a>
-  //       </div>
-  //     </div>
-  //     <div className="w-1/2 flex justify-center">
-  //       <Image
-  //         src="/images/profile_blue.jpg"
-  //         alt="Profile"
-  //         width={300}
-  //         height={300}
-  //         className="rounded-full border-4 border-primary-400"
-  //       />
-  //     </div>
-  //   </div>
-  // );
-
   return (
     <PageLayout heroContent={heroContent}>
-      <AnimatedSection className="bg-background-600">
+      <AnimatedSection className="bg-secondary-600">
         <AboutMe />
       </AnimatedSection>
-      <AnimatedSection className="bg-background-700">
+      <AnimatedSection className="bg-secondary-700">
         <WorkCarousel />
       </AnimatedSection>
-      <AnimatedSection className="bg-background-600">
+      <AnimatedSection className="bg-secondary-600">
         <Motivations />
       </AnimatedSection>
-      <AnimatedSection className="bg-background-500">
+      <AnimatedSection className="bg-secondary-500">
         <Footer />
       </AnimatedSection>
     </PageLayout>

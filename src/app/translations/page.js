@@ -15,7 +15,7 @@ const TranslationsPage = () => {
 
   return (
     <PageLayout heroHeight="h-[40vh]" heroContent={heroContent}>
-      <AnimatedSection className="bg-background-600">
+      <AnimatedSection className="bg-secondary-600">
         <div className="container px-8 py-12">
           <p className="text-lg text-accent-100 max-w-3xl mb-6">
             {t.introduction}
@@ -24,7 +24,7 @@ const TranslationsPage = () => {
       </AnimatedSection>
 
       {/* Translations Section */}
-      <AnimatedSection className="bg-background-600">
+      <AnimatedSection className="bg-secondary-600">
         <div className="container px-8 py-12">
           <h2 className="text-3xl font-bold mb-8 text-primary-100">
             {t.projectsTitle}
@@ -33,7 +33,7 @@ const TranslationsPage = () => {
             {t.projects.map((project, index) => (
               <div
                 key={index}
-                className="bg-background-700 rounded-lg p-6 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl"
+                className="bg-secondary-700 rounded-lg p-6 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl"
               >
                 <h3 className="text-2xl font-bold text-primary-100 mb-2">
                   {project.title}
@@ -46,7 +46,7 @@ const TranslationsPage = () => {
                   href={project.pdfPath}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 px-4 py-2 bg-primary-400 text-background-600 rounded hover:bg-primary-300 transition-colors inline-block"
+                  className="mt-4 px-4 py-2 bg-primary-400 text-secondary-600 rounded hover:bg-primary-300 transition-colors inline-block"
                 >
                   {t.openPdf}
                 </a>
@@ -57,7 +57,7 @@ const TranslationsPage = () => {
       </AnimatedSection>
 
       {/* Glossary Section */}
-      <AnimatedSection className="bg-background-600">
+      <AnimatedSection className="bg-secondary-600">
         <div className="container px-8 py-12">
           <h2 className="text-3xl font-bold mb-6 text-primary-100">
             {t.glossaryTitle}
