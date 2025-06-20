@@ -31,15 +31,15 @@ export default function Home() {
   }
 
   const heroContent = (
-    <div className="container mx-auto px-2">
+    <div className="container mx-auto px-8">
       <div className="flex flex-col md:flex-row items-center">
         {/* Profile */}
         <div className="w-full md:w-1/2 md:mb-16 flex justify-center">
           <Image
             src="/images/profile_green.jpg"
             alt="Profile"
-            width={400}
-            height={400}
+            width={500}
+            height={500}
             className="rounded-full border-2 border-primary-200"
           />
         </div>

@@ -49,9 +49,8 @@ const WorkCarousel = () => {
   return (
     <div className="w-full py-16 bg-secondary-700 bg-gradient-to-b from-secondary-700 to-secondary-600">
       <div className="max-w-6xl mx-auto px-5">
-        <h2 className="text-3xl font-bold mb-6 py-4 text-primary-100">
+        <h2 className="text-3xl font-bold mb-6 py-4 text-primary-100 border-b-4 border-primary-400 inline-block">
           {t.title}
-          <span className="block w-64 h-0.5 bg-primary-400 mt-2"></span>
         </h2>
 
         <div className="relative">

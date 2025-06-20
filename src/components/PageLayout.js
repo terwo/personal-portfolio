@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import NavBar from "./NavBar";
-import LanguageToggle from "./LanguageToggle";
 
 const PageLayout = ({ children, heroHeight = "h-screen", heroContent }) => {
   const [showBackground, setShowBackground] = useState(false);
@@ -11,7 +10,7 @@ const PageLayout = ({ children, heroHeight = "h-screen", heroContent }) => {
 
   useEffect(() => {
     const backgroundTimer = setTimeout(() => setShowBackground(true), 100);
-    const contentTimer = setTimeout(() => setShowContent(true), 500);
+    const contentTimer = setTimeout(() => setShowContent(true), 700);
 
     return () => {
       clearTimeout(backgroundTimer);
@@ -30,8 +29,8 @@ const PageLayout = ({ children, heroHeight = "h-screen", heroContent }) => {
           <Image
             src="/images/sunset.jpg"
             alt="Background"
-            fill
             priority
+            fill
             quality={90}
             sizes="100vw"
             className="object-cover"

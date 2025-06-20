@@ -11,9 +11,8 @@ const Motivations = () => {
   return (
     <section className="relative py-16 bg-gradient-to-b from-secondary-600 to-secondary-500">
       <div className="max-w-6xl mx-auto px-5">
-        <h2 className="text-3xl font-bold mb-6 py-4 relative text-primary-100">
+        <h2 className="text-3xl font-bold mb-6 py-4 relative text-primary-100 border-b-4 border-primary-400 inline-block">
           {t.title}
-          <span className="block w-64 h-0.5 bg-primary-400 mt-2"></span>
         </h2>
         <div className="flex flex-col md:flex-row gap-12 items-start">
           <div className="w-full md:w-1/2 pr-0 md:pr-6">

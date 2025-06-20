@@ -14,7 +14,7 @@ const TranslationsPage = () => {
   );
 
   return (
-    <PageLayout heroHeight="h-[40vh]" heroContent={heroContent}>
+    <PageLayout heroHeight="h-[60vh]" heroContent={heroContent}>
       <AnimatedSection className="bg-secondary-600">
         <div className="container px-8 py-12">
           <p className="text-lg text-accent-100 max-w-3xl mb-6">

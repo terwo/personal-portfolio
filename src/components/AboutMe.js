@@ -13,9 +13,8 @@ const AboutMe = () => {
       <div className="relative z-10">
         <div className="max-w-6xl mx-auto px-4">
           {/* Title */}
-          <h2 className="text-3xl font-bold mb-8 py-4 relative text-primary-100">
+          <h2 className="text-3xl font-bold mb-8 py-4 relative text-primary-100 border-b-4 border-primary-400 inline-block">
             {t.title}
-            <span className="block w-64 h-0.5 bg-primary-400 mt-2"></span>
           </h2>
 
           {/* Full-width*/}
